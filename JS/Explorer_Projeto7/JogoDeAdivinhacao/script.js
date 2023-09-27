@@ -9,3 +9,10 @@ while(Number(result) != randomNumber) {
 }
 
 alert(`Parabéns! O número que eu pensei foi ${randomNumber} e você advinhou o número em ${xAttempts} tentativas`)
+
+
+
+
+
+
+
