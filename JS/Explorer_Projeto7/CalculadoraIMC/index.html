@@ -7,40 +7,47 @@
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
-
     <div class="container">
       <main class="card">
         <form action="">
-            <h1>Cálculo de IMC</h1>
-            <div class="input-wrapper">
-                <label for="weight">Peso (kg)</label>
-                <input id="weight" type="text" placeholder="60"/>
-                <!-- placeholder fica como um exemplo de como preencher -->
-            </div>
+          <h1>Cálculo de IMC</h1>
+          <div class="input-wrapper">
+            <label for="weight">Peso (kg)</label>
+            <input id="weight" type="text" placeholder="60" />
+            <!-- placeholder fica como um exemplo de como preencher -->
+          </div>
 
-            <div class="input-wrapper">
-                <label for="height">Altura (m)</label>
-                <input id="height" type="text" placeholder="165"/>
-            </div>
+          <div class="input-wrapper">
+            <label for="height">Altura (m)</label>
+            <input id="height" type="text" placeholder="165" />
+          </div>
 
-            <button type="submit">Calcular IMC
-                <img src="./assets/arrow.svg" alt="Seta">
-                    
-            </button>
-
+          <button type="submit">
+            Calcular IMC
+            <img src="./assets/arrow.svg" alt="Seta" />
+          </button>
         </form>
-
-
       </main>
     </div>
 
-
-
+    <div class="modal-wrapper open">
+      <div class="modal card">
+        <h2 class="tittle">
+          <button class="close">
+            <img src="./assets/close.svg" alt="img pra fechar o popup" />
+          </button>
+          Seu IMC é de 28
+        </h2>
+      </div>
+    </div>
   </body>
 </html>

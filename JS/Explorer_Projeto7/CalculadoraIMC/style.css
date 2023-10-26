@@ -127,3 +127,43 @@ button{
 button:hover{
     background-color: var(--bg-button-hover);
 }
+
+.modal-wrapper.open{
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-wrapper{
+    position: absolute;
+    inset: 0;
+    background: rgb(0,0,0,0.7);
+
+    display: grid;
+    place-content: center;
+
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modal{
+    position: relative;
+}
+
+.modal button{
+    background: none;
+    border: none;
+
+    position: absolute;
+    top:-30%;
+    left: 13rem;
+    
+
+    cursor: pointer;
+
+    transition: transform .3s;
+
+}
+
+.modal-wrapper:hover{
+    transform: scale(1.1);
+}
