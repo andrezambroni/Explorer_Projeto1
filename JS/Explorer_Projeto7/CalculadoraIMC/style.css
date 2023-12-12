@@ -1,76 +1,73 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
 }
 
-:root{
+:root {
     font-size: 62.5%;
 
     /* cores */
     --tt-heading: #0C3440;
 
-    --tt-label: ##00453A;
+    --tt-label: #00453A;
     --tt-input: #212529;
     --ot-input: #02799D;
-    --bd-input: rgba(73,80,87,0.3);
+    --bd-input: rgba(73, 80, 87, 0.3);
+    --tt-placeholder: rgba(73, 80, 87, 0.5);
     --bg-input: #DCE2E9;
 
-    --tt-placeholder: rgba(73,80,87,0.5);
-
-    --tt-bottom: white;
+    --tt-button: white;
     --bg-button: #02799D;
-    --bg-button-hover: #02455a;
+    --bg-button-hover: #01475c;
 
-    --bg-error: #f03E3E;
+    --bg-error: #F03E3E;
     --tt-error: white;
 }
 
-body{
+body {
     font-family: 'Roboto', sans-serif;
     background-color: #040924;
-    font-size: 1.6rem;
-    
 }
 
-body, input, button{
-    font-family: 'Roboto', sans-serif;
-    background-color: #040924;
+body,
+input,
+button {
+    font-size: 1.6rem;
     line-height: 2rem;
-} 
+}
 
-.container{
+.container {
     height: 100vh;
     display: grid;
     place-content: center;
 }
 
-.card{
+.card {
     padding: 4.8rem 6.4rem 6.4rem;
     background: white;
     max-width: 42.8rem;
-    margin-inline: auto; 
+    margin-inline: auto;
 
-    box-shadow: 0 .2rem .4rem rgb(0,0,0,0.1);
+    box-shadow: 0 .2rem .4rem rgba(0, 0, 0, 0.1);
     border-radius: .6rem;
 }
 
-.title{
+.title {
     font-size: 3.2rem;
     line-height: 4rem;
     color: var(--tt-heading);
 }
 
-
-form{
+form {
     width: 30rem;
 }
 
-form h1{
+form h1 {
     margin-bottom: 3.2rem;
 }
-form label{
+
+form label {
     font-size: 1.4rem;
     line-height: 1.8rem;
     color: var(--tt-label);
@@ -78,7 +75,7 @@ form label{
     display: block;
 }
 
-form input{
+form input {
     width: 100%;
     border: 1px solid var(--bd-input);
     background: var(--bg-input);
@@ -86,29 +83,30 @@ form input{
     border-radius: .4rem;
 }
 
-/* quando esta clicado */
 form input:focus {
     outline: 2px solid var(--ot-input);
 }
 
-form input::placeholder{
+form input::placeholder {
     color: var(--tt-placeholder);
 }
 
-/* pega o .input-wrapper que anterior a ele tem outro .input-wrapper */
-.input-wrapper + .input-wrapper{
+.input-wrapper+.input-wrapper {
     margin-top: 1.6rem;
 }
 
 
-button{
+
+
+form button {
     margin-top: 3.2rem;
     padding: 1.6rem;
     width: 100%;
 
+    border-radius: .4rem;
     border: none;
     background-color: var(--bg-button);
-    color: var(--tt-bottom);
+    color: var(--tt-button);
 
     display: flex;
     align-items: center;
@@ -116,27 +114,26 @@ button{
     gap: .8rem;
 
     font-weight: bold;
-    border-radius: .4rem;
-    font-size: 1.6rem;
 
     cursor: pointer;
 
     transition: background .3s;
 }
 
-button:hover{
-    background-color: var(--bg-button-hover);
+form button:hover {
+    background: var(--bg-button-hover);
 }
 
-.modal-wrapper.open{
+/* modal */
+.modal-wrapper.open {
     opacity: 1;
     visibility: visible;
 }
 
-.modal-wrapper{
+.modal-wrapper {
     position: absolute;
     inset: 0;
-    background: rgb(0,0,0,0.7);
+    background: rgba(0, 0, 0, 0.7);
 
     display: grid;
     place-content: center;
@@ -145,32 +142,29 @@ button:hover{
     visibility: hidden;
 }
 
-.modal{
+.modal {
     position: relative;
 }
 
-.modal button{
+.modal button {
     background: none;
     border: none;
 
     position: absolute;
-    top:-30%;
-    left: 13rem;
-    
+    top: 1.6rem;
+    right: 1.6rem;
 
     cursor: pointer;
 
     transition: transform .3s;
-
 }
 
-.modal-wrapper:hover{
+.modal button:hover {
     transform: scale(1.1);
 }
 
 /* alert error */
-
-.alert-error.open{
+.alert-error.open {
     visibility: visible;
     opacity: 1;
     transform: translateY(0);
@@ -182,7 +176,6 @@ button:hover{
     top: 0;
     left: 0;
     right: 0;
-
     text-align: center;
     color: var(--tt-error);
     padding: .8rem 0;
