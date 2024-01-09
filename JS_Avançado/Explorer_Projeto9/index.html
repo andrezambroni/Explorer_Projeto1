@@ -1,47 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <nav>
-      <a href="/" onclink="route()">Home</a>
-      <a href="/about" onclink="route()">Sobre</a>
-      <a href="/contato" onclink="route()">Contato</a>
-      <a href="/404" onclink="route()">404</a>
-    </nav>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SPA</title>
+</head>
+<body>
+  <nav>
+    <a href="./pages/home.html" onclick="route()">Home</a>
+    <a href="./pages/about.html" onclick="route()">Sobre</a>
+    <a href="./pages/contact.html" onclick="route()">Contact</a>
+    <a href="./pages/404.html" onclick="route()">404</a>
+  </nav>
 
-    <div id="app"></div>
+  <div id="app"></div>
 
-    <script>
-      const routes = {
-        "/": "/pages/home.html",
-        "/about": "/pages/about.html",
-        "/contato": "/pages/contato.html",
-        404: "/pages/404.html",
-      };
-
-      function route(event) {
-        event = event || window.event;
-        event.preventDefault();
-
-
-        // Atualiza o histórico do navegador usando window.history.pushState(),
-        //  criando uma nova entrada sem uma recarga total da página.
-        window.history.pushState({}, "", event.target.href);
-
-        handle();
-      }
-
-      function handle() {
-        // Recupera o caminho atual usando window.location.pathname
-        const { pathname }= window.location
-        const route = routes [pathname] || routes [404]
-
-        console.log(pathname);
-      }
-    </script>
-  </body>
+  <script src="js/index.js" type="module"></script>
+</body>
 </html>
