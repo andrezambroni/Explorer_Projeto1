@@ -1,15 +1,65 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Github Favorites</title>
 
-    <link rel="stylesheet" href="./style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="app"></div>
 
-    
-    
-</body>
+    <header>
+      <h1>GitHub Favorites</h1>
+      <div>
+        <label for="input-search">Usuário do Github</label>
+        <input id="input-search" type="text" placeholder="Usuário do Github" />
+        <button>&plus;</button>
+      </div>
+    </header>
+    <table>
+      <thead>
+        <tr>
+          <th>Usuário</th>
+          <th>Repositórios</th>
+          <th>Seguidores</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td class="user">
+            <img src="https://github.com/andrezambroni.png" />
+            <a href="https://github.com/andrezambroni" target="_blank">
+              <p>André Zambroni</p>
+              <span>Andrezambroni</span>
+            </a>
+          </td>
+          <td class="repositories">76</td>
+          <td class="followers">9589</td>
+          <td>
+            <button>&times;</button>
+          </td>
+        </tr>
+
+        <tr>
+            <td class="user">
+              <img src="https://github.com/diego3g.png" />
+              <a href="https://github.com/diego3g" target="_blank">
+                <p>Diego Fernandes</p>
+                <span>diego3g</span>
+              </a>
+            </td>
+            <td class="repositories">76</td>
+            <td class="followers">9589</td>
+            <td>
+              <button>&times;</button>
+            </td>
+          </tr>
+
+      </tbody>
+    </table>
+  </body>
 </html>
