@@ -6,45 +6,55 @@
     <title>Github Favorites</title>
 
     <link rel="stylesheet" href="./style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <header>
+        <h1>GitHub Favorites</h1>
+        <div>
+          <label class="sr-only" for="input-search">Usuário do Github</label>
+          <input
+            id="input-search"
+            type="text"
+            placeholder="Usuário do Github"
+          />
+          <button>&plus;</button>
+        </div>
+      </header>
+      <table>
+        <thead>
+          <tr>
+            <th>Usuário</th>
+            <th>Repositórios</th>
+            <th>Seguidores</th>
+            <th></th>
+          </tr>
+        </thead>
 
-    <header>
-      <h1>GitHub Favorites</h1>
-      <div>
-        <label for="input-search">Usuário do Github</label>
-        <input id="input-search" type="text" placeholder="Usuário do Github" />
-        <button>&plus;</button>
-      </div>
-    </header>
-    <table>
-      <thead>
-        <tr>
-          <th>Usuário</th>
-          <th>Repositórios</th>
-          <th>Seguidores</th>
-          <th></th>
-        </tr>
-      </thead>
+        <tbody>
+          <tr>
+            <td class="user">
+              <img src="https://github.com/andrezambroni.png" />
+              <a href="https://github.com/andrezambroni" target="_blank">
+                <p>André Zambroni</p>
+                <span>Andrezambroni</span>
+              </a>
+            </td>
+            <td class="repositories">76</td>
+            <td class="followers">9589</td>
+            <td>
+              <button class="remove">&times;</button>
+            </td>
+          </tr>
 
-      <tbody>
-        <tr>
-          <td class="user">
-            <img src="https://github.com/andrezambroni.png" />
-            <a href="https://github.com/andrezambroni" target="_blank">
-              <p>André Zambroni</p>
-              <span>Andrezambroni</span>
-            </a>
-          </td>
-          <td class="repositories">76</td>
-          <td class="followers">9589</td>
-          <td>
-            <button>&times;</button>
-          </td>
-        </tr>
-
-        <tr>
+          <tr>
             <td class="user">
               <img src="https://github.com/diego3g.png" />
               <a href="https://github.com/diego3g" target="_blank">
@@ -55,11 +65,11 @@
             <td class="repositories">76</td>
             <td class="followers">9589</td>
             <td>
-              <button>&times;</button>
+              <button class="remove">&times;</button>
             </td>
           </tr>
-
-      </tbody>
-    </table>
+        </tbody>
+      </table>
+    </div>
   </body>
 </html>
