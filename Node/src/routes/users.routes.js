@@ -4,11 +4,15 @@ const UsersController = require("../controllers/UsersController");
 
 const usersRoutes = Router();
 
-function myMiddleware(request, response, next) {
-  console.log("passou pelo middleware");
+// function myMiddleware(request, response, next) {
+//   console.log("passou pelo middleware");
 
-  next();
-}
+//   if (!request.body.isAdmin) {
+//     return response.json({ message: "usuario nao autorizado" });
+//   }
+
+//   next();
+// }
 
 const usersController = new UsersController();
 
