@@ -28,5 +28,5 @@ app.use((error, request, response, next) => {
   })
 })
 
-const PORT = 3333
+const PORT = 3000
 app.listen(PORT, () => console.log(`Server is running on Port ${PORT}`))
