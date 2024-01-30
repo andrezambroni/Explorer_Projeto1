@@ -1,22 +1,19 @@
-const AppError = require("../utils/AppError");
-
-const sqlite = require("../database/sqlite");
-const sqliteConnection = require("../database/sqlite");
 const { hash, compare } = require("bcryptjs");
+const AppError = require("../utils/AppError");
+const sqliteConnection = require("../database/sqlite");
 
 class UsersController {
   async create(request, response) {
     const { name, email, password } = request.body;
 
     const database = await sqliteConnection();
-
-    const checkUsersExists = await database.get(
+    const checkUserExists = await database.get(
       "SELECT * FROM users WHERE email = (?)",
       [email]
     );
 
-    if (checkUsersExists) {
-      throw new AppError("Esse email já esta em uso.");
+    if (checkUserExists) {
+      throw new AppError("Este e-mail já está em uso.");
     }
 
     const hashedPassword = await hash(password, 8);
@@ -37,7 +34,7 @@ class UsersController {
     const user = await database.get("SELECT * FROM users WHERE id = (?)", [id]);
 
     if (!user) {
-      throw new AppError("Usuário nao encontrado");
+      throw new AppError("Usuário não encontrado");
     }
 
     const userWithUpdatedEmail = await database.get(
@@ -46,7 +43,7 @@ class UsersController {
     );
 
     if (userWithUpdatedEmail && userWithUpdatedEmail.id !== user.id) {
-      throw new AppError("Este e-mail ja está sendo usado.");
+      throw new AppError("Este e-mail já está em uso.");
     }
 
     user.name = name;
@@ -54,7 +51,7 @@ class UsersController {
 
     if (password && !old_password) {
       throw new AppError(
-        "Informe a senha atual para mudar o cadastro de senha."
+        "Você informar a senha antiga para definir a nova senha"
       );
     }
 
@@ -62,15 +59,21 @@ class UsersController {
       const checkOldPassword = await compare(old_password, user.password);
 
       if (!checkOldPassword) {
-        throw new AppError("Senha atual incorreta");
+        throw new AppError("A senha antiga não confere.");
       }
 
       user.password = await hash(password, 8);
     }
 
     await database.run(
-      `UPDATE users SET name = ?, email = ?, password = ?, updated_at = ?, WHERE id = ?`,
-      [user.name, user.email, newDate(), id]
+      `
+      UPDATE users SET
+      name = ?,
+      email = ?,
+      password = ?,
+      updated_at = DATETIME('now')
+      WHERE id = ?`,
+      [user.name, user.email, user.password, id]
     );
 
     return response.json();
